@@ -4,26 +4,21 @@
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Please Enter Type of Exam (.1 For Final .2 For practical");
-            byte Type = byte.Parse(Console.ReadLine());
-            if (Type == 1)
-            {
-                Final final = new Final();
-                final.AddQuestion();
-            }
-            else
-            {
-                Parctical parctical = new Parctical();
-                Console.WriteLine(".1 For MCQ .2 For True | False");
-                string typeofquestion = Console.ReadLine();
-                if (typeofquestion == "1")
-                    parctical.AddQuestion();
-                else
-                    parctical.AddQuestionTrueOrFalse();
-            }
+            Answer[] answers = {
+        new Answer(1, "Answer 1"),
+        new Answer(2, "Answer 2"), };
+     
+     
+            Question[] questions = 
+                {
+        new MSQQ("Q1", "------------?", 5, answers, answers[1]),
+        new TrueFalseQ("Q2"," ==========?", 5)
+                };
 
 
+            Exams finalExam = new Final(DateTime.Now, 2, questions);
+            Subject subject = new Subject(1, "Math", finalExam);
+            //Subject.????????
         }
     }
 }

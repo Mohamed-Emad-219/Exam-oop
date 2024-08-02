@@ -6,28 +6,20 @@ using System.Threading.Tasks;
 
 namespace Exam_oop
 {
-    internal class Parctical :Question
-    { 
-        public void AddQuestionTrueOrFalse()
+    internal class Parctical :Question ,ICloneable
+    {
+        public Parctical(string header, string body, int mark) : base(header, body, mark)
         {
-            Console.WriteLine("Please Enter Body Of Question :");
-            string body = Console.ReadLine();
-            Console.WriteLine("Please Enter Mark Of Question :");
-            string Mark = Console.ReadLine();
+        }
 
-            Console.WriteLine("Please Enter Number choice Of Question :");
-         short num_choice = short.Parse(Console.ReadLine());
-            string[] choice = new string[num_choice];
+        public object Clone()
+        {
+            throw new NotImplementedException();
+        }
 
-            for (int i = 0; i < num_choice; i++)
-            {
-                Console.WriteLine($"Please Enter choice {i + 1} :");
-                choice[i] = Console.ReadLine();
-            }
-
-            Console.WriteLine("Please Enter Id of Right Answer :");
-            short ID = short.Parse(Console.ReadLine());
-
+        public override void print()
+        {
+            throw new NotImplementedException();
         }
     }
 }
